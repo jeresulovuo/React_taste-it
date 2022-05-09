@@ -1,0 +1,16 @@
+{
+  "recipes": [
+    {
+      "name": "Pancake",
+      "description": "Delicios pancakes",
+      "country": "Finland",
+      "id": 1
+    },
+    {
+      "name": "Black Forest Cake",
+      "description": "Yummy cake",
+      "country": "Germany",
+      "id": 2
+    }
+  ]
+}

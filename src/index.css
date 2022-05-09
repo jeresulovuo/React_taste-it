@@ -40,7 +40,29 @@ nav ul {
 }
 
 .heroBanner {
+  background: url('./assets/pexels-taryn-elliott-7172269.mp4');
   background-color: bisque;
   width: 100vw;
   height: 50vh;
+}
+
+.heroBanner a {
+  text-decoration: none;
+  color: white;
+}
+
+.heroBanner button {
+  padding: 0.5rem 1rem;
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.recipe {
+  min-width: 200px;
+  min-height: 300px;
+  padding: 1rem;
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 5px;
 }
