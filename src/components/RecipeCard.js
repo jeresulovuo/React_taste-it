@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Recipe = (props) => {
+const RecipeCard = (props) => {
   const { name, description, country, id } = props;
   return (
     <div className="recipe">
@@ -13,4 +13,4 @@ const Recipe = (props) => {
     </div>
   );
 };
-export default Recipe;
+export default RecipeCard;

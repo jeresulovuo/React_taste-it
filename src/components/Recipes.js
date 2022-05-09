@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import Recipe from './Recipe';
+import RecipeCard from './RecipeCard';
 
 const Recipes = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -27,7 +27,7 @@ const Recipes = () => {
       <h1>Recipes</h1>
       <div className="recipeList">
         {data.map((recipe) => (
-          <Recipe {...recipe} />
+          <RecipeCard {...recipe} key={recipe.id} />
         ))}
       </div>
     </div>

@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom';
 import Layout from './pages/Layout';
 import Home from './components/Home';
 import Recipes from './components/Recipes';
-import Recipe from './components/Recipe';
+import Recipe from './components/RecipeCard';
 import AddNewRecipe from './components/AddNewRecipe';
 
 const RouterWrapper = (props) => {
