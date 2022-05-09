@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import './index.css';
+import React from 'react';
+import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom';
 
-function App() {
+import Layout from './pages/Layout';
+import Home from './components/Home';
+import Recipes from './components/Recipes';
+import Recipe from './components/Recipe';
+import AddNewRecipe from './components/AddNewRecipe';
+
+const RouterWrapper = (props) => {
+  const params = useParams();
+  return <Recipe params={params} {...props} />;
+};
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="recipes" element={<Recipes />} />
+          <Route path="recipes/:recipe" element={<RouterWrapper />} />
+          <Route path="/add-new" element={<AddNewRecipe />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
