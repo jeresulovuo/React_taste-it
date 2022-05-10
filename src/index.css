@@ -113,8 +113,20 @@ button:hover {
   padding: 1rem;
   margin: 0.5rem;
 }
+/*.............. Recipes ................*/
+.search {
+  margin: 0 auto;
+  padding: 0.5rem;
+}
+.search input {
+  display: block;
+  padding: 0.5rem;
+  width: 30vw;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
 
-/* Recipe card */
+/*.............. Recipe card ................*/
 .recipe {
   margin: 0.5rem;
   min-width: 250px;
@@ -123,13 +135,19 @@ button:hover {
   padding: 1rem;
   display: inline-block;
   vertical-align: top;
-  border: 1px solid black;
+  border: 1px solid lightgray;
   border-radius: 5px;
 }
 
 .recipe img {
   width: 90%;
   height: 50%;
+}
+
+.recipe:hover {
+  box-shadow: 3px 3px 3px rgb(236, 236, 236);
+  transform: scale(1.01);
+  transition: all 0.2s;
 }
 
 /*................... Form ...................*/
@@ -153,7 +171,7 @@ select {
   border-radius: 5px;
 }
 
-/*............. Recipe ...............*/
+/*............. Recipe single ...............*/
 .recipeSingle {
   display: flex;
   flex-wrap: wrap;
