@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;900&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -17,10 +17,29 @@ main {
   width: 100vw;
 }
 
+h1 {
+  font-weight: bold;
+  padding: 1rem;
+}
+
+h2 {
+  font-weight: normal;
+  padding: 1rem;
+}
+
+h3 {
+  font-weight: 600;
+}
+
+p {
+  font-weight: 300;
+}
+
+/*.............. Front page ................*/
+
 header {
   width: 100vw;
   height: 80px;
-  padding: 1rem;
   background-color: black;
   display: flex;
   align-items: center;
@@ -34,16 +53,36 @@ header a {
 }
 
 nav ul {
+  margin: 1rem;
   list-style: none;
   display: flex;
   flex-direction: row;
 }
 
+header h1 {
+  padding: 0;
+}
+
 .heroBanner {
-  background: url('./assets/pexels-taryn-elliott-7172269.mp4');
+  background: url('https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80');
+  background-position: center center;
+  background-size: cover;
   background-color: bisque;
   width: 100vw;
   height: 50vh;
+}
+
+.heroBannerContent {
+  transform: translate(0, 15vh);
+  background-color: rgb(0, 0, 0, 0.7);
+  padding: 1rem;
+  color: white;
+  backdrop-filter: blur(3px);
+}
+
+.heroBannerContent button {
+  margin-top: 1rem;
+  border: 1px solid white;
 }
 
 button a {
@@ -54,19 +93,43 @@ button a {
 button {
   padding: 0.5rem 1rem;
   background-color: black;
-  border: 1px solid black;
+  border: 1px solid white;
   color: white;
   border-radius: 5px;
 }
 
+button:hover {
+  cursor: pointer;
+  filter: invert();
+}
+.bottomContainer {
+  display: flex;
+  width: 100vw;
+}
+
+.link {
+  display: inline-block;
+  border: 1px solid lightgray;
+  padding: 1rem;
+  margin: 0.5rem;
+}
+
+/* Recipe card */
 .recipe {
   margin: 0.5rem;
   min-width: 250px;
+  max-width: 300px;
   min-height: 300px;
   padding: 1rem;
   display: inline-block;
+  vertical-align: top;
   border: 1px solid black;
   border-radius: 5px;
+}
+
+.recipe img {
+  width: 90%;
+  height: 50%;
 }
 
 /*................... Form ...................*/
@@ -88,4 +151,27 @@ select {
   min-width: 250px;
   border: 1px solid lightgray;
   border-radius: 5px;
+}
+
+/*............. Recipe ...............*/
+.recipeSingle {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.leftContainer,
+.rightContainer {
+  width: 50vw;
+  min-width: 200px;
+  padding: 1rem;
+}
+
+.leftContainer img {
+  width: 100%;
+}
+
+.ingredients {
+  border: 1px solid lightgray;
+  background-color: rgb(242, 242, 242);
+  padding: 0.5rem;
 }

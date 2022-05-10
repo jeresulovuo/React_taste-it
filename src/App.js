@@ -7,10 +7,11 @@ import Home from './components/Home';
 import Recipes from './components/Recipes';
 import Recipe from './components/RecipeCard';
 import AddNewRecipe from './components/AddNewRecipe';
+import RecipeSingle from './components/RecipeSingle';
 
 const RouterWrapper = (props) => {
   const params = useParams();
-  return <Recipe params={params} {...props} />;
+  return <RecipeSingle params={params} {...props} />;
 };
 
 const App = () => {
