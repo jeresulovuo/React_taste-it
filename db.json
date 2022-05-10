@@ -21,6 +21,17 @@
       "instructions": "Bake",
       "image": "https://images.unsplash.com/photo-1643733645069-76bac4462103?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
       "id": 2
+    },
+    {
+      "name": "Pizza",
+      "author": "Mary",
+      "country": "Georgia",
+      "description": "Good pizza",
+      "quantity": "1 kg",
+      "ingredient": "flour",
+      "instructions": "Bake it",
+      "image": "https://cdn.valio.fi/mediafiles/735b79c8-e8f8-4f46-ac22-770103a4facb/1600x1200-recipe-data/4x3/pizza.jpg",
+      "id": 3
     }
   ]
 }

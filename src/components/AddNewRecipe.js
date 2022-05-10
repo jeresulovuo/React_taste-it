@@ -12,17 +12,24 @@ const AddNewRecipe = (props) => {
     ingredient: '',
     instructions: '',
   });
+  const [countries, setCountries] = useState([]);
 
   const inputHandler = (e) => {
-    // console.log(newRecipe);
-    // console.log(e.target.name);
-    // if (e.target.name == 'ingredient') {
-    //   setNewRecipe({
-    //     [newRecipe.ingredients.ingredient]: e.target.value,
-    //   });
-    // } else {
     setNewRecipe({ ...newRecipe, [e.target.name]: e.target.value });
   };
+
+  useEffect(() => {
+    setIsLoading(true);
+    axios
+      .get('https://restcountries.com/v3.1/all')
+      .then((res) => {
+        setIsLoading(false);
+        setCountries(res.data);
+      })
+      .catch((err) => {
+        console.log('Axios get countries error: ', err);
+      });
+  }, []);
 
   const postHandler = (e) => {
     axios
@@ -35,6 +42,9 @@ const AddNewRecipe = (props) => {
       });
   };
 
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
   return (
     <form className="addNewRecipe" onSubmit={postHandler}>
       <h1>Add New Recipe</h1>
@@ -49,10 +59,16 @@ const AddNewRecipe = (props) => {
       <div>
         <label htmlFor="country">Recipe is from:</label>
         <select name="country" required onChange={inputHandler}>
-          <option value="" hidden></option>
+          {/* {countries.map((country) => console.log(country.name.official))}; */}
+          {countries.map((country) => (
+            <option value={country.name.official} key={country.name.official}>
+              {country.name.official}
+            </option>
+          ))}
+          {/* <option value="" hidden></option>
           <option value="Finland">Finland</option>
           <option value="Sweden">Sweden</option>
-          <option value="UK">UK</option>
+          <option value="UK">UK</option> */}
         </select>
       </div>
       <div>

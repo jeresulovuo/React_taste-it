@@ -161,12 +161,19 @@ button:hover {
 }
 
 .addNewRecipe input,
-.addNewRecipe textarea,
-select {
+.addNewRecipe textarea {
   display: inline-block;
   padding: 0.5rem;
   margin: 0.5rem;
   min-width: 250px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+
+select {
+  width: 250px;
+  padding: 0.5rem;
+  margin: 0.5rem;
   border: 1px solid lightgray;
   border-radius: 5px;
 }
