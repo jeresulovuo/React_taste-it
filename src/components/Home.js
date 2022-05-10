@@ -9,6 +9,8 @@ const Home = () => {
           <Link to="recipes">Recipes</Link>
         </button>
       </div>
+      <Link to="recipes">Recipes</Link>
+      <Link to="add-new">Add new</Link>
     </>
 
     // <video

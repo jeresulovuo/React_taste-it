@@ -1,15 +1,25 @@
 {
   "recipes": [
     {
-      "name": "Pancake",
-      "description": "Delicios pancakes",
+      "name": "Pannukakku",
+      "author": "Mary",
       "country": "Finland",
+      "description": "Yummy pancakes",
+      "quantity": "1 kg",
+      "ingredient": "flour",
+      "instructions": "Fry in a pan",
+      "image": "some link",
       "id": 1
     },
     {
       "name": "Black Forest Cake",
-      "description": "Yummy cake",
-      "country": "Germany",
+      "author": "John",
+      "country": "UK",
+      "description": "Delicious cake",
+      "quantity": "1 kg",
+      "ingredient": "flour",
+      "instructions": "Bake",
+      "image": "some link",
       "id": 2
     }
   ]
