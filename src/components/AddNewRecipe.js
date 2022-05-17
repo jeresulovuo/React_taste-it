@@ -7,24 +7,53 @@ const AddNewRecipe = (props) => {
     name: '',
     author: '',
     country: '',
+    flag: '',
     description: '',
-    quantity: '',
-    ingredient: '',
+    ingredients: [],
     instructions: '',
   });
+  //Ingredients state is used for the structure and ids
+  const [ingredients, setIngredients] = useState([
+    {
+      id: 1,
+      ingredient: '',
+      quantity: '',
+    },
+  ]);
   const [countries, setCountries] = useState([]);
 
   const inputHandler = (e) => {
     setNewRecipe({ ...newRecipe, [e.target.name]: e.target.value });
   };
 
+  const ingredientHandler = (e, i) => {
+    //Spread the ingredients into a list
+    let listIng = [...ingredients];
+    //Set value to the name at specified key
+    listIng[i][e.target.name] = e.target.value;
+    setNewRecipe({ ...newRecipe, ingredients: listIng });
+
+    console.log(listIng);
+  };
+
+  const addIngredient = (e) => {
+    e.preventDefault();
+    console.log(ingredients);
+    //Add new ingredient field with incremented id
+    setIngredients([
+      ...ingredients,
+      { id: ingredients.length + 1, ingredient: '', quantity: '' },
+    ]);
+  };
+
   useEffect(() => {
     setIsLoading(true);
     axios
-      .get('https://restcountries.com/v3.1/all')
+      .get('https://restcountries.com/v3.1/all?fields=name,flag,flags')
       .then((res) => {
         setIsLoading(false);
         setCountries(res.data);
+        // console.log(res.data);
       })
       .catch((err) => {
         console.log('Axios get countries error: ', err);
@@ -32,6 +61,7 @@ const AddNewRecipe = (props) => {
   }, []);
 
   const postHandler = (e) => {
+    console.log(newRecipe);
     axios
       .post('http://localhost:3010/recipes', newRecipe)
       .then((res) => {
@@ -59,16 +89,12 @@ const AddNewRecipe = (props) => {
       <div>
         <label htmlFor="country">Recipe is from:</label>
         <select name="country" required onChange={inputHandler}>
-          {/* {countries.map((country) => console.log(country.name.official))}; */}
           {countries.map((country) => (
-            <option value={country.name.official} key={country.name.official}>
-              {country.name.official}
+            <option value={country.name.common} key={country.name.common}>
+              {country.name.common}
+              {country.flag}
             </option>
           ))}
-          {/* <option value="" hidden></option>
-          <option value="Finland">Finland</option>
-          <option value="Sweden">Sweden</option>
-          <option value="UK">UK</option> */}
         </select>
       </div>
       <div>
@@ -79,15 +105,37 @@ const AddNewRecipe = (props) => {
         <label htmlFor="image">Image link</label>
         <input type="text" name="image" required onChange={inputHandler} />
       </div>
-      Ingredients
-      <div>
-        <label htmlFor="quantity">Quantity</label>
-        <input type="text" name="quantity" required onChange={inputHandler} />
+      <h2>Ingredients</h2>
+      <div className="formIngredients">
+        {ingredients.map((item, i) => {
+          return (
+            <div key={i} className="formIngredient">
+              <div className="quantity">
+                <label htmlFor="quantity"></label>
+                <input
+                  type="text"
+                  name="quantity"
+                  placeholder="Quantity"
+                  required
+                  onChange={(e) => ingredientHandler(e, i)}
+                />
+              </div>
+              <div className="ingredientName">
+                <label htmlFor="ingredient"></label>
+                <input
+                  type="text"
+                  name="ingredient"
+                  placeholder="Ingredient"
+                  required
+                  onChange={(e) => ingredientHandler(e, i)}
+                />
+              </div>
+              <button onClick={addIngredient}>+</button>
+            </div>
+          );
+        })}
       </div>
-      <div>
-        <label htmlFor="ingredient">Ingredient</label>
-        <input type="text" name="ingredient" required onChange={inputHandler} />
-      </div>
+
       <div>
         <label htmlFor="instructions">Instructions</label>
         <textarea required name="instructions" onChange={inputHandler} />
