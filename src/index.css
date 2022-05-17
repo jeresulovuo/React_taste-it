@@ -15,6 +15,7 @@ body {
 main {
   max-width: 1200px;
   width: 100vw;
+  margin: 0 auto;
 }
 
 h1 {
@@ -39,7 +40,9 @@ p {
 
 header {
   width: 100vw;
+  max-width: 1200px;
   height: 80px;
+  margin: 0 auto;
   background-color: black;
   display: flex;
   align-items: center;
@@ -64,16 +67,24 @@ header h1 {
 }
 
 .heroBanner {
-  background: url('https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80');
-  background-position: center center;
-  background-size: cover;
-  background-color: bisque;
+  /* background: url('https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'); */
+  /* background-position: center center;
+  background-size: cover; */
   width: 100vw;
-  height: 50vh;
+  max-width: 1200px;
+  max-height: 70vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.video {
+  width: 100vw;
 }
 
 .heroBannerContent {
-  transform: translate(0, 15vh);
+  position: absolute;
+  top: 30vh;
+  width: 100%;
   background-color: rgb(0, 0, 0, 0.7);
   padding: 1rem;
   color: white;
@@ -96,6 +107,7 @@ button {
   border: 1px solid white;
   color: white;
   border-radius: 5px;
+  margin: 1rem 0;
 }
 
 button:hover {
@@ -105,6 +117,7 @@ button:hover {
 .bottomContainer {
   display: flex;
   width: 100vw;
+  max-width: 1200px;
 }
 
 .link {
@@ -129,9 +142,8 @@ button:hover {
 /*.............. Recipe card ................*/
 .recipe {
   margin: 0.5rem;
-  min-width: 250px;
-  max-width: 300px;
-  min-height: 300px;
+  width: 300px;
+  height: 420px;
   padding: 1rem;
   display: inline-block;
   vertical-align: top;
@@ -139,9 +151,14 @@ button:hover {
   border-radius: 5px;
 }
 
+.imageContainer {
+  max-height: 200px;
+  overflow: hidden;
+}
+
 .recipe img {
   width: 90%;
-  height: 50%;
+  max-height: 300px;
 }
 
 .recipe:hover {
@@ -155,17 +172,19 @@ button:hover {
   padding: 1rem;
 }
 
-.addNewRecipe label {
+label {
   display: inline-block;
-  min-width: 150px;
+  vertical-align: top;
+  padding: 0.5rem 0;
+  width: 150px;
 }
 
-.addNewRecipe input,
-.addNewRecipe textarea {
+input,
+textarea {
   display: inline-block;
   padding: 0.5rem;
   margin: 0.5rem;
-  min-width: 250px;
+  width: 250px;
   border: 1px solid lightgray;
   border-radius: 5px;
 }
@@ -176,6 +195,41 @@ select {
   margin: 0.5rem;
   border: 1px solid lightgray;
   border-radius: 5px;
+}
+
+/*........... Ingredients ..............*/
+.addNewRecipe h2 {
+  padding: 0.5rem 0;
+}
+
+.formIngredient {
+  padding: 0.5rem 0;
+  font-size: 0.8rem;
+  width: 100%;
+}
+
+.formIngredients button {
+  display: inline-block;
+}
+
+.formIngredient :nth-child(1),
+.formIngredient :nth-child(2),
+.formIngredient label,
+.formIngredient input {
+  display: inline-block;
+  width: fit-content;
+}
+
+.formIngredient label {
+  padding-top: 0.8rem;
+}
+
+.formIngredient .quantity input {
+  width: 80px;
+}
+
+.formIngredient .ingredientName input {
+  width: 250px;
 }
 
 /*............. Recipe single ...............*/
