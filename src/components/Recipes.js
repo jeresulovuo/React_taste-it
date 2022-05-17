@@ -18,6 +18,8 @@ const Recipes = () => {
       //If searched word matches recipe name or country name show that RecipeCard
       if (recipeName.includes(searched) || recipeCountry.includes(searched)) {
         return recipe;
+      } else {
+        return '';
       }
     });
     console.log(result);
@@ -55,7 +57,7 @@ const Recipes = () => {
       </div>
 
       <div className="recipeList">
-        {filteredData.map((recipeCard) => (
+        {filteredData?.map((recipeCard) => (
           <RecipeCard {...recipeCard} key={recipeCard.id} />
         ))}
       </div>

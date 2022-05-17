@@ -26,6 +26,19 @@ const AddNewRecipe = (props) => {
     setNewRecipe({ ...newRecipe, [e.target.name]: e.target.value });
   };
 
+  const countryHandler = (e) => {
+    countries.map((country) => {
+      if (country.name.common == e.target.value) {
+        setNewRecipe({
+          ...newRecipe,
+          country: e.target.value,
+          flag: country.flags.svg,
+        });
+        console.log(newRecipe);
+      }
+    });
+  };
+
   const ingredientHandler = (e, i) => {
     //Spread the ingredients into a list
     let listIng = [...ingredients];
@@ -52,7 +65,11 @@ const AddNewRecipe = (props) => {
       .get('https://restcountries.com/v3.1/all?fields=name,flag,flags')
       .then((res) => {
         setIsLoading(false);
-        setCountries(res.data);
+        //Sort by country name
+        let sorted = res.data.sort((a, b) =>
+          a.name.common.localeCompare(b.name.common)
+        );
+        setCountries(sorted);
         // console.log(res.data);
       })
       .catch((err) => {
@@ -88,7 +105,7 @@ const AddNewRecipe = (props) => {
       </div>
       <div>
         <label htmlFor="country">Recipe is from:</label>
-        <select name="country" required onChange={inputHandler}>
+        <select name="country" required onChange={countryHandler}>
           {countries.map((country) => (
             <option value={country.name.common} key={country.name.common}>
               {country.name.common}

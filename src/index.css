@@ -151,6 +151,18 @@ button:hover {
   border-radius: 5px;
 }
 
+.flagContainter {
+  position: absolute;
+  width: 80px;
+  overflow: hidden;
+}
+
+.flag {
+  position: relative;
+  top: 0.5rem;
+  left: 0;
+}
+
 .imageContainer {
   max-height: 200px;
   overflow: hidden;
@@ -238,15 +250,22 @@ select {
   flex-wrap: wrap;
 }
 
+.recipeSingle h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding-left: 0;
+}
+
 .leftContainer,
 .rightContainer {
   width: 50vw;
   min-width: 200px;
   padding: 1rem;
+  background-color: white;
 }
 
 .leftContainer img {
-  width: 100%;
+  max-height: 50vh;
 }
 
 .ingredients {

@@ -1,10 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import videoSrc from '../assets/pexels-denys-gromov.mp4';
 
 const Home = () => {
+  const [isLoading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(false);
+  }, []);
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
   return (
     <>
       <div className="heroBanner">
+        <video
+          muted
+          loop
+          id="myVideo"
+          className="video"
+          autoPlay={true}
+          preload={'auto'}
+        >
+          <source src={videoSrc} type={'video/mp4'}></source>
+          Your browser does not support the video tag.
+        </video>
+
         <div className="heroBannerContent">
           <h1>TasteIT</h1>
           <p>
@@ -33,17 +55,12 @@ const Home = () => {
         <div className="link">
           <h3>Want to know more about our projects?</h3>
           <p>Visit our programme homepage</p>
-          <a href="http://bc.fi" target="_blank">
+          <a href="http://bc.fi" target="_blank" rel="noreferrer">
             Business College Helsinki
           </a>
         </div>
       </div>
     </>
-
-    // <video
-    //   src="./../assets/pexels-taryn-elliott-7172269.mp4"
-    //   className="heroBanner"
-    // ></video>
   );
 };
 export default Home;
