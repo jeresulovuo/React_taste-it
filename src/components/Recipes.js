@@ -10,12 +10,18 @@ const Recipes = () => {
   const [filteredData, setFiltered] = useState(data);
 
   const searchHandler = (e) => {
-    const resut = data.filter((entry) => {
-      if (entry.name.toLowerCase().includes(e.target.value.toLowerCase())) {
-        return entry;
+    const result = data.filter((recipe) => {
+      let recipeCountry = recipe.country.toLowerCase();
+      let recipeName = recipe.name.toLowerCase();
+      let searched = e.target.value.toLowerCase();
+
+      //If searched word matches recipe name or country name show that RecipeCard
+      if (recipeName.includes(searched) || recipeCountry.includes(searched)) {
+        return recipe;
       }
     });
-    setFiltered(resut);
+    console.log(result);
+    setFiltered(result);
   };
 
   useEffect(() => {
@@ -49,8 +55,8 @@ const Recipes = () => {
       </div>
 
       <div className="recipeList">
-        {filteredData.map((recipe) => (
-          <RecipeCard {...recipe} key={recipe.id} />
+        {filteredData.map((recipeCard) => (
+          <RecipeCard {...recipeCard} key={recipeCard.id} />
         ))}
       </div>
     </div>
