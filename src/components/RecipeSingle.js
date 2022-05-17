@@ -7,6 +7,9 @@ const RecipeSingle = () => {
   return (
     <div className="recipeSingle">
       <div className="leftContainer">
+        <div className="flagContainer">
+          <img src={data.flag} alt={data.name} className="flag" />
+        </div>
         <img src={data.image} alt={data.name}></img>
         <h2>Ingredients:</h2>
         {data.ingredients?.map((ingredient) => {
