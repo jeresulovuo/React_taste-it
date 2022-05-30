@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <>
       <div className="heroBanner">
-        <video
+        {/* <video
           muted
           loop
           id="myVideo"
@@ -25,7 +25,7 @@ const Home = () => {
         >
           <source src={videoSrc} type={'video/mp4'}></source>
           Your browser does not support the video tag.
-        </video>
+        </video> */}
 
         <div className="heroBannerContent">
           <h1>TasteIT</h1>

@@ -67,9 +67,10 @@ header h1 {
 }
 
 .heroBanner {
-  /* background: url('https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'); */
-  /* background-position: center center;
-  background-size: cover; */
+  background: url('https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80');
+  background-position: center center;
+  background-size: cover;
+  min-height: 60vh;
   width: 100vw;
   max-width: 1200px;
   max-height: 70vh;
