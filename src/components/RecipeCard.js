@@ -21,7 +21,7 @@ const RecipeCard = (props) => {
 
       <button>
         <Link to={name} state={{ from: 'recipes', data: props }}>
-          Read mode
+          Read more
         </Link>
       </button>
     </div>
