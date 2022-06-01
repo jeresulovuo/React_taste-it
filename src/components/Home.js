@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import videoSrc from '../assets/pexels-denys-gromov.mp4';
+// import videoSrc from '../assets/pexels-denys-gromov.mp4';
 
 const Home = () => {
   const [isLoading, setLoading] = useState(true);
